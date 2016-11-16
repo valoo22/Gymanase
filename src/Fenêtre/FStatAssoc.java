@@ -1,0 +1,341 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Fenêtre;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Valoo
+ */
+public class FStatAssoc extends FMaster
+{
+        ResultSet rs;
+    /**
+     * Creates new form FStatAssoc
+     */
+    public FStatAssoc()
+    {
+        initComponents();
+        try 
+            {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                PreparedStatement ps = conn.prepareStatement(pilote);
+                ResultSet rs = ps.executeQuery("Select Count(refAsso) from association");
+                if (rs.first())
+                {
+                    lblNbreAssoc.setText(rs.getString("count(refAsso)"));
+                }
+                rs.close();
+                conn.close();
+      
+            } 
+        catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
+            } 
+        finally 
+            {
+                if ( conn != null )
+                    try 
+                        {
+                            conn.close();
+                        } 
+                    catch ( SQLException ignore ) 
+                        {
+                            
+                        }
+            }
+        
+        try 
+            {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                PreparedStatement ps = conn.prepareStatement(pilote);
+                ResultSet rs = ps.executeQuery("SELECT refAsso FROM pratiquer order BY COUNT(*) DESC");
+                if (rs.first())
+                {
+                    lblPlusAssocSportPratiquer.setText(rs.getString("refAsso"));
+                }
+                rs.close();
+                conn.close();
+      
+            } 
+        catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
+            } 
+        finally 
+            {
+                if ( conn != null )
+                    try 
+                        {
+                            conn.close();
+                        } 
+                    catch ( SQLException ignore ) 
+                        {
+                            
+                        }
+            }
+        
+        try 
+            {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                PreparedStatement ps = conn.prepareStatement(pilote);
+                ResultSet rs = ps.executeQuery("Select refAsso, COUNT(refAsso) from reservation GROUP By refAsso DESC LIMIT 1");
+                if (rs.first())
+                {
+                    lblSallePlusLouer.setText(rs.getString("refAsso"));
+                }
+                rs.close();
+                conn.close();
+      
+            } 
+        catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
+            } 
+        finally 
+            {
+                if ( conn != null )
+                    try 
+                        {
+                            conn.close();
+                        } 
+                    catch ( SQLException ignore ) 
+                        {
+                            
+                        }
+            }
+        
+        try 
+            {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                PreparedStatement ps = conn.prepareStatement(pilote);
+                ResultSet rs = ps.executeQuery("SELECT DISTINCT refAsso FROM association");
+                while (rs.next())
+                {                    
+                    cbxAssoc.addItem(rs.getString("refAsso"));
+                }
+                rs.close();
+                conn.close();
+      
+            } 
+        catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
+            } 
+        finally 
+            {
+                if ( conn != null )
+                    try 
+                        {
+                            conn.close();
+                        } 
+                    catch ( SQLException ignore ) 
+                        {
+                            
+                        }
+            }
+        
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents()
+    {
+
+        lblTitre = new javax.swing.JLabel();
+        lblTNbreAssocInsc = new javax.swing.JLabel();
+        lblTPlusAssocSportPratiquer = new javax.swing.JLabel();
+        lblTSallePlusLouer = new javax.swing.JLabel();
+        lblNbreAssoc = new javax.swing.JLabel();
+        lblPlusAssocSportPratiquer = new javax.swing.JLabel();
+        lblSallePlusLouer = new javax.swing.JLabel();
+        lblSelectAssoc = new javax.swing.JLabel();
+        cbxAssoc = new javax.swing.JComboBox<>();
+        btnOk = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblTitre.setForeground(new java.awt.Color(0, 204, 0));
+        lblTitre.setText("Statistique Association");
+
+        lblTNbreAssocInsc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblTNbreAssocInsc.setText("Nombre d'Association Inscrite : ");
+
+        lblTPlusAssocSportPratiquer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblTPlusAssocSportPratiquer.setText("Association avec le plus de Sport pratiquer : ");
+
+        lblTSallePlusLouer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblTSallePlusLouer.setText("Asociation avec le plus de Salle louer :");
+
+        lblNbreAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblNbreAssoc.setText("jLabel1");
+
+        lblPlusAssocSportPratiquer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPlusAssocSportPratiquer.setText("jLabel2");
+
+        lblSallePlusLouer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblSallePlusLouer.setText("jLabel3");
+
+        lblSelectAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblSelectAssoc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSelectAssoc.setText("Selectionner Une Association :");
+
+        cbxAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnOk.setText("Ok");
+        btnOk.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnOkActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton1.setText("Retour");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnOk)
+                    .addComponent(cbxAssoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSelectAssoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitre)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTNbreAssocInsc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNbreAssoc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTSallePlusLouer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSallePlusLouer))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTPlusAssocSportPratiquer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPlusAssocSportPratiquer)))
+                .addGap(133, 133, 133))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitre)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTNbreAssocInsc)
+                    .addComponent(lblNbreAssoc))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTPlusAssocSportPratiquer)
+                    .addComponent(lblPlusAssocSportPratiquer))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTSallePlusLouer)
+                    .addComponent(lblSallePlusLouer))
+                .addGap(18, 18, 18)
+                .addComponent(lblSelectAssoc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbxAssoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnOk)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOkActionPerformed
+    {//GEN-HEADEREND:event_btnOkActionPerformed
+        FStatUneAssoc f1 = new FStatUneAssoc(cbxAssoc.getSelectedItem().toString());
+        this.setVisible(false);
+        f1.setVisible(true);
+    }//GEN-LAST:event_btnOkActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[])
+    {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex)
+        {
+            java.util.logging.Logger.getLogger(FStatAssoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex)
+        {
+            java.util.logging.Logger.getLogger(FStatAssoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex)
+        {
+            java.util.logging.Logger.getLogger(FStatAssoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
+            java.util.logging.Logger.getLogger(FStatAssoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                new FStatAssoc().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOk;
+    private javax.swing.JComboBox<String> cbxAssoc;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblNbreAssoc;
+    private javax.swing.JLabel lblPlusAssocSportPratiquer;
+    private javax.swing.JLabel lblSallePlusLouer;
+    private javax.swing.JLabel lblSelectAssoc;
+    private javax.swing.JLabel lblTNbreAssocInsc;
+    private javax.swing.JLabel lblTPlusAssocSportPratiquer;
+    private javax.swing.JLabel lblTSallePlusLouer;
+    private javax.swing.JLabel lblTitre;
+    // End of variables declaration//GEN-END:variables
+}

@@ -1,0 +1,87 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Metier;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+/**
+ *
+ * @author Valoo
+ */
+public class Reservation
+{
+    private String refAsso, refSalle;
+    private Date DateReserv;
+    private Date HeureReserv;
+    private static ArrayList<Reservation> lesReservation = new ArrayList();
+
+    public Reservation(String refSalle, Date DateReserv, Date HeureReserv, String refAsso)
+    {
+        this.refAsso = refAsso;
+        this.refSalle = refSalle;
+        this.DateReserv = DateReserv;
+        this.HeureReserv = HeureReserv;
+    }
+
+    public String getRefAsso()
+    {
+        return refAsso;
+    }
+
+    public String getRefSalle()
+    {
+        return refSalle;
+    }
+
+    public Date getDateReserv()
+    {
+        return DateReserv;
+    }
+
+    public Date getHeureReserv()
+    {
+        return HeureReserv;
+    }
+
+    public void setRefAsso(String refAsso)
+    {
+        this.refAsso = refAsso;
+    }
+
+    public void setRefSalle(String refSalle)
+    {
+        this.refSalle = refSalle;
+    }
+
+    public void setDateReserv(Date DateReserv)
+    {
+        this.DateReserv = DateReserv;
+    }
+
+    public void setHeureReserv(Date HeureReserv)
+    {
+        this.HeureReserv = HeureReserv;
+    }
+
+    public static ArrayList<Reservation> getLesReservation()
+    {
+        return lesReservation;
+    }
+
+    public static void setLesReservation(Reservation a)
+    {
+        boolean add = lesReservation.add(a);
+    }
+    public static int getNbrereservation()
+    {
+        return lesReservation.size();
+    }
+    public static Reservation getUneReservation(int r)
+    {
+        return lesReservation.get(r);
+    }
+}
