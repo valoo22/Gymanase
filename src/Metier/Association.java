@@ -12,7 +12,7 @@ package Metier;
 public class Association
 {
     private final String RefAsso, Ville, Adresse, NomRepsonsable;
-
+    //Je déclare l'entité Association
     public Association(String RefAsso, String Ville, String Adresse, String NomRepsonsable)
     {
         this.RefAsso = RefAsso;
