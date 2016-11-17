@@ -15,11 +15,11 @@ import java.util.Date;
 public class Reservation
 {
     private String refAsso, refSalle;
-    private Date DateReserv;
+    private String DateReserv;
     private Date HeureReserv;
     private static ArrayList<Reservation> lesReservation = new ArrayList();
 
-    public Reservation(String refSalle, Date DateReserv, Date HeureReserv, String refAsso)
+    public Reservation(String refSalle, String DateReserv, Date HeureReserv, String refAsso)
     {
         this.refAsso = refAsso;
         this.refSalle = refSalle;
@@ -37,7 +37,7 @@ public class Reservation
         return refSalle;
     }
 
-    public Date getDateReserv()
+    public String getDateReserv()
     {
         return DateReserv;
     }
@@ -57,7 +57,7 @@ public class Reservation
         this.refSalle = refSalle;
     }
 
-    public void setDateReserv(Date DateReserv)
+    public void setDateReserv(String DateReserv)
     {
         this.DateReserv = DateReserv;
     }

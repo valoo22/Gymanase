@@ -6,8 +6,8 @@
 package Fenêtre;
 
 import Metier.Reservation;
-import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,8 +31,8 @@ public class FModifReservationB extends FMaster
     {
         initComponents();
         lblSalle.setText(Re.getRefSalle());
-        lblDate.setText(Re.getDateReserv().toString());
-        lblHeure.setText(Re.getHeureReserv().toString()+" h");
+        lblDate.setText(Re.getDateReserv());
+        lblHeure.setText(Re.getHeureReserv().toString());
         ResultSet rs1;
         try
         {
@@ -76,6 +76,7 @@ public class FModifReservationB extends FMaster
         lblSalle = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
         btnAnnuler = new javax.swing.JButton();
+        lblH = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modifier une Réservation");
@@ -130,6 +131,10 @@ public class FModifReservationB extends FMaster
             }
         });
 
+        lblH.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblH.setForeground(new java.awt.Color(0, 255, 51));
+        lblH.setText("H");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,7 +156,9 @@ public class FModifReservationB extends FMaster
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHeureReserv)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblHeure))
+                                .addComponent(lblHeure)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblH))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSalleReserv)
                                 .addGap(18, 18, 18)
@@ -179,7 +186,8 @@ public class FModifReservationB extends FMaster
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHeureReserv)
-                    .addComponent(lblHeure))
+                    .addComponent(lblHeure)
+                    .addComponent(lblH))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAssoc)
@@ -196,7 +204,35 @@ public class FModifReservationB extends FMaster
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOkActionPerformed
     {//GEN-HEADEREND:event_btnOkActionPerformed
-
+        int option = JOptionPane.showConfirmDialog(null, "Voulez-vous vraiment Modifier la réservation : Salle " + lblSalle.getText() + " /Date : "+lblDate.getText() + " à " + lblHeure.getText() + " , Association : "+ cbxAssoc.getSelectedItem().toString() +" du tableaux Reservation ?", "Confirmation Modification ?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (option == JOptionPane.YES_OPTION) 
+        {
+            try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+            PreparedStatement prepareStmt = conn.prepareStatement("Update from reservation where refAsso = ? and refSalle = ? and date = ? and heure = ?");
+            prepareStmt.setString(1, cbxAssoc.getSelectedItem().toString());
+            prepareStmt.setString(2, lblSalle.getText());
+            prepareStmt.setString(3, lblDate.getText());
+            prepareStmt.setString(4, lblHeure.getText());
+            prepareStmt.executeUpdate();
+            conn.close();
+            JOptionPane.showMessageDialog(null, "Modication de la reservation effectué !", "Suppression Réussie", JOptionPane.OK_OPTION);
+            } 
+            catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.OK_OPTION);
+            } 
+            finally 
+            {
+                if ( conn != null )
+                    try {
+                        conn.close();
+                        } 
+                    catch ( SQLException ignore ) 
+                        {
+                        }
+            }
+        }
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnAnnulerActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAnnulerActionPerformed
@@ -243,12 +279,9 @@ public class FModifReservationB extends FMaster
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
+        java.awt.EventQueue.invokeLater(() ->
         {
-            public void run()
-            {
-                new FModifReservationB().setVisible(true);
-            }
+            new FModifReservationB().setVisible(true);
         });
     }
 
@@ -259,6 +292,7 @@ public class FModifReservationB extends FMaster
     private javax.swing.JLabel lblAssoc;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDateReserv;
+    private javax.swing.JLabel lblH;
     private javax.swing.JLabel lblHeure;
     private javax.swing.JLabel lblHeureReserv;
     private javax.swing.JLabel lblSalle;

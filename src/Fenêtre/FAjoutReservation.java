@@ -241,19 +241,13 @@ public class FAjoutReservation extends FMaster
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOkActionPerformed
     {//GEN-HEADEREND:event_btnOkActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Voulez-vous vraiment ajouter la reservation suivante : l'association "+cbxAssoc.getSelectedItem().toString()+" réservent la salle : " + cbxSalle.getSelectedItem().toString() + " le : " + dateformat.format(dpDateReserv.getDate()) + " à " + timeformat.format(sHeureReserv.getValue())+" h .", "Confirmation Reservation ?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        String StringDate = timeformat.format(dpDateReserv.getDate());
+        String StringDate = dateformat.format(dpDateReserv.getDate());
         if (option == JOptionPane.YES_OPTION) 
         {
             Reservation Re = null;
-            try 
-            { 
-                Re = new Reservation(cbxSalle.getSelectedItem().toString(), timeformat.parse(StringDate) , (Date)sHeureReserv.getValue(), cbxAssoc.getSelectedItem().toString());
-                Reservation.setLesReservation(Re);
-                JOptionPane.showMessageDialog(null, "La réservation de "+cbxAssoc.getSelectedItem().toString()+" pour la salle : "+ cbxSalle.getSelectedItem().toString() +" le " + dateformat.format(dpDateReserv.getDate()) + " à " + timeformat.format(sHeureReserv.getValue()) + " a bien été ajoutée a la liste des enrengistrement , n'ouliez pas d'enrengistrer les modification en fin de journée .", "Réservation correctement enrengistrée !", JOptionPane.INFORMATION_MESSAGE);
-            } 
-            catch (ParseException ex) {
-                Logger.getLogger(FAjoutReservation.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+            Re = new Reservation(cbxSalle.getSelectedItem().toString(), StringDate, (Date)sHeureReserv.getValue(), cbxAssoc.getSelectedItem().toString());
+            Reservation.setLesReservation(Re);
+            JOptionPane.showMessageDialog(null, "La réservation de "+cbxAssoc.getSelectedItem().toString()+" pour la salle : "+ cbxSalle.getSelectedItem().toString() +" le " + dateformat.format(dpDateReserv.getDate()) + " à " + timeformat.format(sHeureReserv.getValue()) + " a bien été ajoutée a la liste des enrengistrement , n'ouliez pas d'enrengistrer les modification en fin de journée .", "Réservation correctement enrengistrée !", JOptionPane.INFORMATION_MESSAGE); 
         }
     }//GEN-LAST:event_btnOkActionPerformed
 

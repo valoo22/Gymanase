@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -258,7 +259,7 @@ public class FMaster extends javax.swing.JFrame
                     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
                     PreparedStatement prepareStmt = conn.prepareStatement("insert into reservation(refSalle, date, heure, refAsso) values(?,?,?,?)");
                     prepareStmt.setString(1, Re.getRefSalle());
-                    prepareStmt.setString(2, dateformat.format(Re.getDateReserv()));
+                    prepareStmt.setString(2, Re.getDateReserv());
                     prepareStmt.setString(3, timeformat.format(Re.getHeureReserv()));
                     prepareStmt.setString(4, Re.getRefAsso());
                     prepareStmt.executeUpdate();

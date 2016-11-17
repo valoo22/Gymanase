@@ -38,7 +38,9 @@ public class FStatistique extends FMaster
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Statistique");
+        setMaximumSize(new java.awt.Dimension(600, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(358, 180));
 
         btnSport.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSport.setText("Sport");
@@ -107,7 +109,7 @@ public class FStatistique extends FMaster
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(lblTitre)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
