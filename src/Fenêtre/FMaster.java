@@ -320,14 +320,14 @@ public class FMaster extends javax.swing.JFrame
 
     private void miModifReservBActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_miModifReservBActionPerformed
     {//GEN-HEADEREND:event_miModifReservBActionPerformed
-        FSelectReservationBase f1 = new FSelectReservationBase();
+        FSelectReservationB f1 = new FSelectReservationB();
         this.setVisible(false);
         f1.setVisible(true);
     }//GEN-LAST:event_miModifReservBActionPerformed
 
     private void miModifReservAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_miModifReservAActionPerformed
     {//GEN-HEADEREND:event_miModifReservAActionPerformed
-        FSelectReservationAppli f1 = new FSelectReservationAppli();
+        FSelectReservationA f1 = new FSelectReservationA();
         this.setVisible(false);
         f1.setVisible(true);
     }//GEN-LAST:event_miModifReservAActionPerformed

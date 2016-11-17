@@ -237,7 +237,7 @@ public class FModifReservationB extends FMaster
 
     private void btnAnnulerActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAnnulerActionPerformed
     {//GEN-HEADEREND:event_btnAnnulerActionPerformed
-        FSelectReservationBase f1 = new FSelectReservationBase();
+        FSelectReservationB f1 = new FSelectReservationB();
         this.setVisible(false);
         f1.setVisible(true);
     }//GEN-LAST:event_btnAnnulerActionPerformed
