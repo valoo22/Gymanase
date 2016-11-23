@@ -5,6 +5,7 @@
  */
 package Metier;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,10 +15,12 @@ import java.util.Date;
  */
 public class Reservation
 {
+    private int num;
     private String refAsso, refSalle;
     private String DateReserv;
     private Date HeureReserv;
     private static ArrayList<Reservation> lesReservation = new ArrayList();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH");
 
     public Reservation(String refSalle, String DateReserv, Date HeureReserv, String refAsso)
     {
@@ -84,4 +87,9 @@ public class Reservation
     {
         return lesReservation.get(r);
     }
+    public String affich() 
+    {
+        return refAsso + "/" + refSalle + "/" + DateReserv + "/" + sdf.format(HeureReserv) + "H";
+    }
+    
 }

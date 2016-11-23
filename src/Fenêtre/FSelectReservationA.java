@@ -5,37 +5,34 @@
  */
 package Fenêtre;
 import Metier.Reservation;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Valoo
  */
-public class FSelectReservationA extends javax.swing.JFrame
+public class FSelectReservationA extends FMaster
 {
-
+    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
     /**
      * Creates new form FSelectReservationA
      */
-    public FSelectReservationA()
+    public FSelectReservationA() throws ClassNotFoundException, SQLException
     {
         initComponents();
-        int Verif = 0;
-        for (int i = 0; i < Reservation.getNbrereservation(); i++)
+        for (int i = 0; i < Reservation.getNbrereservation(); i++) 
         {
             Reservation Re = Reservation.getUneReservation(i);
-            for (int j = 0; j < cbxAssoc.getItemCount() + 1; j++)
-            {
-                if (!Re.getRefAsso().equals(cbxAssoc.getItemAt(j)))
-                {
-                    Verif = 1;
-                }
-            }
-            if (Verif == 1)
-            {
-                cbxAssoc.addItem(Re.getRefAsso());
-                Verif = 0 ;
-            }
-    }
+            cbxReserv.addItem(Re.affich());
         }
+    }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,20 +41,21 @@ public class FSelectReservationA extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
-        lblAssoc = new javax.swing.JLabel();
-        cbxAssoc = new javax.swing.JComboBox<>();
-        lblSalle = new javax.swing.JLabel();
-        cbxSalle = new javax.swing.JComboBox<>();
-        lblDate = new javax.swing.JLabel();
-        cbxDate = new javax.swing.JComboBox<>();
-        lblHeure = new javax.swing.JLabel();
-        cbxHeure = new javax.swing.JComboBox<>();
-        btnModifier = new javax.swing.JButton();
+        btnAnnuler = new javax.swing.JButton();
         btnSupprimer = new javax.swing.JButton();
+        lblReservation = new javax.swing.JLabel();
+        lblAssoc = new javax.swing.JLabel();
+        lblSalle = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblHeure = new javax.swing.JLabel();
+        cbxReserv = new javax.swing.JComboBox<>();
+        cbxAssoc = new javax.swing.JComboBox<>();
+        cbxSalle = new javax.swing.JComboBox<>();
+        cbxDate = new javax.swing.JComboBox<>();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,38 +64,41 @@ public class FSelectReservationA extends javax.swing.JFrame
         lblTitre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitre.setText("Selectionnez Une Reservation dans la Base");
 
-        lblAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblAssoc.setText("Association : ");
-
-        cbxAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxAssoc.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                cbxAssocActionPerformed(evt);
-            }
-        });
-
-        lblSalle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblSalle.setText("Salle : ");
-
-        cbxSalle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        lblDate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblDate.setText("Date de la Réservation : ");
-
-        cbxDate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        lblHeure.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblHeure.setText("Heure de la Réservation : ");
-
-        cbxHeure.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        btnModifier.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnModifier.setText("Modifier");
+        btnAnnuler.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnAnnuler.setText("Modifier");
 
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
+
+        lblReservation.setFont(new java.awt.Font("Dialog", 1, 21)); // NOI18N
+        lblReservation.setText("Réservation : ");
+
+        lblAssoc.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblAssoc.setText("Associations : ");
+
+        lblSalle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblSalle.setText("Salle :");
+
+        lblDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblDate.setText("Date : ");
+
+        lblHeure.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblHeure.setText("Heure : ");
+
+        cbxReserv.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxReserv.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxReservItemStateChanged(evt);
+            }
+        });
+
+        cbxAssoc.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        cbxSalle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        cbxDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jSpinner1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,27 +107,32 @@ public class FSelectReservationA extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitre, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSupprimer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAnnuler))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblReservation)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxReserv, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAssoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(cbxAssoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblSalle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(cbxSalle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lblHeure)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxHeure, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnModifier)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSupprimer)))
+                        .addComponent(lblDate)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -134,7 +140,11 @@ public class FSelectReservationA extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitre)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblReservation, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxReserv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAssoc)
                     .addComponent(cbxAssoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,10 +159,10 @@ public class FSelectReservationA extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHeure)
-                    .addComponent(cbxHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModifier)
+                    .addComponent(btnAnnuler)
                     .addComponent(btnSupprimer))
                 .addContainerGap())
         );
@@ -160,26 +170,38 @@ public class FSelectReservationA extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbxAssocActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxAssocActionPerformed
-    {//GEN-HEADEREND:event_cbxAssocActionPerformed
-        int Verif = 0;
-        for (int i = 0; i < Reservation.getNbrereservation(); i++)
+    private void cbxReservItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxReservItemStateChanged
+        ResultSet rs1;
+        Statement stat, stat1;
+        try
         {
-            Reservation Re = Reservation.getUneReservation(i);
-            for (int j = 0; j < cbxSalle.getItemCount() + 1; j++)
+            Class.forName(pilote);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/gymnase", "root", "");
+            stat = conn.createStatement();
+            rs1 = stat.executeQuery("Select Distinct refAsso from association");
+            while(rs1.next())
             {
-                if (!Re.getRefAsso().equals(cbxSalle.getItemAt(j)) && Re.getDateReserv().equals(cbxAssoc.getSelectedItem().toString()))
-                {
-                    Verif = 1;
-                }
+                cbxAssoc.addItem(rs1.getString("refAsso"));
             }
-            if (Verif == 1)
+            rs1.close();
+            stat.close();
+            stat1 = conn.createStatement();
+            rs1 = stat1.executeQuery("Select Distinct refSalle from salle");
+            while(rs1.next())
             {
-                cbxAssoc.addItem(Re.getRefAsso());
-                Verif = 0 ;
+                cbxSalle.addItem(rs1.getString("refSalle"));
             }
-    }
-    }//GEN-LAST:event_cbxAssocActionPerformed
+            rs1.close();
+            stat1.close();
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (ClassNotFoundException ex) {
+            Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cbxReservItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -221,21 +243,27 @@ public class FSelectReservationA extends javax.swing.JFrame
         {
             public void run()
             {
-                new FSelectReservationA().setVisible(true);
+                try {
+                    new FSelectReservationA().setVisible(true);
+                } catch (ClassNotFoundException | SQLException ex) {
+                    Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnModifier;
+    private javax.swing.JButton btnAnnuler;
     private javax.swing.JButton btnSupprimer;
     private javax.swing.JComboBox<String> cbxAssoc;
     private javax.swing.JComboBox<String> cbxDate;
-    private javax.swing.JComboBox<String> cbxHeure;
+    private javax.swing.JComboBox<String> cbxReserv;
     private javax.swing.JComboBox<String> cbxSalle;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblAssoc;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblHeure;
+    private javax.swing.JLabel lblReservation;
     private javax.swing.JLabel lblSalle;
     private javax.swing.JLabel lblTitre;
     // End of variables declaration//GEN-END:variables
