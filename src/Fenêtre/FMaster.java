@@ -40,8 +40,7 @@ public class FMaster extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         mbMenu = new javax.swing.JMenuBar();
         mAcceuil = new javax.swing.JMenu();
@@ -69,20 +68,16 @@ public class FMaster extends javax.swing.JFrame
         mAcceuil.setText("Acceuil");
 
         miParametre.setText("Paramètre");
-        miParametre.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miParametre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miParametreActionPerformed(evt);
             }
         });
         mAcceuil.add(miParametre);
 
         miEnrengistrer.setText("Enrengistrer");
-        miEnrengistrer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miEnrengistrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miEnrengistrerActionPerformed(evt);
             }
         });
@@ -90,10 +85,8 @@ public class FMaster extends javax.swing.JFrame
         mAcceuil.add(sFile);
 
         miExit.setText("Exit");
-        miExit.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miExitActionPerformed(evt);
             }
         });
@@ -104,40 +97,32 @@ public class FMaster extends javax.swing.JFrame
         mInsertModif.setText("Inssertion/Modification");
 
         miAceuillir.setText("Acceuillir");
-        miAceuillir.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miAceuillir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miAceuillirActionPerformed(evt);
             }
         });
         mInsertModif.add(miAceuillir);
 
         miSport.setText("Sport");
-        miSport.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miSportActionPerformed(evt);
             }
         });
         mInsertModif.add(miSport);
 
         miAssociation.setText("Association");
-        miAssociation.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miAssociation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miAssociationActionPerformed(evt);
             }
         });
         mInsertModif.add(miAssociation);
 
         miPratiquer.setText("Pratiquer");
-        miPratiquer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miPratiquer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miPratiquerActionPerformed(evt);
             }
         });
@@ -148,30 +133,24 @@ public class FMaster extends javax.swing.JFrame
         mReservation.setText("Reservation");
 
         miAjoutReserv.setText("Ajouter Reservation");
-        miAjoutReserv.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miAjoutReserv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miAjoutReservActionPerformed(evt);
             }
         });
         mReservation.add(miAjoutReserv);
 
         miModifReservB.setText("Modifier/Supprimer Reservation sur la Base");
-        miModifReservB.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miModifReservB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miModifReservBActionPerformed(evt);
             }
         });
         mReservation.add(miModifReservB);
 
         miModifReservA.setText("Modifier/Supprimer Reservation sur l'Application");
-        miModifReservA.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        miModifReservA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miModifReservAActionPerformed(evt);
             }
         });
@@ -180,20 +159,16 @@ public class FMaster extends javax.swing.JFrame
         mbMenu.add(mReservation);
 
         mPlanReserv.setText("Plan Reservation");
-        mPlanReserv.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        mPlanReserv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mPlanReservMouseClicked(evt);
             }
         });
         mbMenu.add(mPlanReserv);
 
         mStat.setText("Statistique");
-        mStat.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        mStat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mStatMouseClicked(evt);
             }
         });

@@ -19,11 +19,12 @@ import javax.swing.JOptionPane;
  */
 public class FSelectReservationA extends FMaster
 {
+    ResultSet rs1;
+    Statement stat, stat1;
+    String RefAssoc, RefSalle, Reserv, Date , Heure;
     SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-    /**
-     * Creates new form FSelectReservationA
-     */
-    public FSelectReservationA() throws ClassNotFoundException, SQLException
+
+    public FSelectReservationA()
     {
         initComponents();
         for (int i = 0; i < Reservation.getNbrereservation(); i++) 
@@ -93,6 +94,11 @@ public class FSelectReservationA extends FMaster
         });
 
         cbxAssoc.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxAssoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxAssocActionPerformed(evt);
+            }
+        });
 
         cbxSalle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
@@ -171,8 +177,11 @@ public class FSelectReservationA extends FMaster
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxReservItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxReservItemStateChanged
-        ResultSet rs1;
-        Statement stat, stat1;
+
+        Reserv = cbxReserv.getSelectedItem().toString();
+        String[] ReservSplit = Reserv.split("/");
+        RefAssoc = ReservSplit[0];
+        cbxAssoc.removeAllItems();
         try
         {
             Class.forName(pilote);
@@ -183,25 +192,53 @@ public class FSelectReservationA extends FMaster
             {
                 cbxAssoc.addItem(rs1.getString("refAsso"));
             }
-            rs1.close();
-            stat.close();
-            stat1 = conn.createStatement();
-            rs1 = stat1.executeQuery("Select Distinct refSalle from salle");
-            while(rs1.next())
+            for (int i = 0; i < cbxAssoc.getItemCount(); i++) 
             {
-                cbxSalle.addItem(rs1.getString("refSalle"));
+                if (RefAssoc.equals(cbxAssoc.getItemAt(i).toString())) 
+                {
+                    cbxAssoc.setSelectedIndex(i);
+                }
             }
             rs1.close();
-            stat1.close();
+            stat.close();
         }
-        catch(SQLException e)
+        catch(ClassNotFoundException | SQLException ex)
         {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erreur Sql", JOptionPane.ERROR_MESSAGE);
         } 
-        catch (ClassNotFoundException ex) {
-            Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_cbxReservItemStateChanged
+
+    private void cbxAssocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAssocActionPerformed
+        Reserv = cbxReserv.getSelectedItem().toString();
+        String[] ReservSplit = Reserv.split("/");
+        RefSalle = ReservSplit[1];
+        cbxSalle.removeAllItems();
+        try
+            {
+                Class.forName(pilote);
+                conn = DriverManager.getConnection("jdbc:mysql://localhost/gymnase", "root", "");
+                stat = conn.createStatement();
+                rs1 = stat.executeQuery("Select Distinct refSalle from salle");
+                while(rs1.next())
+                {
+                    cbxSalle.addItem(rs1.getString("refSalle"));
+                }
+
+                for (int i = 0; i < cbxSalle.getItemCount(); i++) 
+                {
+                    if (RefSalle.equals(cbxSalle.getItemAt(i))) 
+                    {
+                        cbxSalle.setSelectedIndex(i);
+                    }
+                }
+                rs1.close();
+                stat.close();
+            }
+        catch(ClassNotFoundException | SQLException ex)
+            {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Erreur Sql", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_cbxAssocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,16 +276,8 @@ public class FSelectReservationA extends FMaster
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                try {
-                    new FSelectReservationA().setVisible(true);
-                } catch (ClassNotFoundException | SQLException ex) {
-                    Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FSelectReservationA().setVisible(true);
         });
     }
 
