@@ -302,7 +302,15 @@ public class FMaster extends javax.swing.JFrame
 
     private void miModifReservAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_miModifReservAActionPerformed
     {//GEN-HEADEREND:event_miModifReservAActionPerformed
-        FSelectReservationA f1 = new FSelectReservationA();
+        FSelectReservationA f1 = null;
+        try 
+            {
+                f1 = new FSelectReservationA();
+            } 
+        catch (ParseException ex) 
+            {
+                Logger.getLogger(FMaster.class.getName()).log(Level.SEVERE, null, ex);
+            }
         this.setVisible(false);
         f1.setVisible(true);
     }//GEN-LAST:event_miModifReservAActionPerformed

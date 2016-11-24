@@ -340,7 +340,8 @@ public class FAjoutReservation extends FMaster
             try
             {
                 new FAjoutReservation().setVisible(true);
-            } catch (ParseException ex)
+            } 
+            catch (ParseException ex)
             {
                 Logger.getLogger(FAjoutReservation.class.getName()).log(Level.SEVERE, null, ex);
             }

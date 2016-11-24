@@ -89,7 +89,7 @@ public class Reservation
     }
     public String affich() 
     {
-        return refAsso + "/" + refSalle + "/" + DateReserv + "/" + sdf.format(HeureReserv) + "H";
+        return refAsso + "/" + refSalle + "/" + DateReserv + "/" + sdf.format(HeureReserv);
     }
     
 }
