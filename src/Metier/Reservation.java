@@ -87,6 +87,11 @@ public class Reservation
     {
         return lesReservation.get(r);
     }
+    public static void UpdateUneReservation(int i, Reservation Re)
+    {
+        lesReservation.remove(i);
+        lesReservation.add(Re);
+    }
     public String affich() 
     {
         return refAsso + "/" + refSalle + "/" + DateReserv + "/" + sdf.format(HeureReserv);

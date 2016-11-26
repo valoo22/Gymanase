@@ -34,12 +34,12 @@ public class FSelectReservationA extends FMaster
     public FSelectReservationA() throws ParseException
     {
         initComponents();
-        avant = sdfHeure.parse("08:00:00");
-        apres = sdfHeure.parse("18:00:00");
+        avant = sdfHeure.parse("08");
+        apres = sdfHeure.parse("18");
         SpinnerDateModel model = new SpinnerDateModel(avant,avant,apres,Calendar.HOUR);
         model.setCalendarField(Calendar.MINUTE);
         sHeure.setModel(model);
-        sHeure.setEditor(new JSpinner.DateEditor(sHeure, "HH:mm:ss"));
+        sHeure.setEditor(new JSpinner.DateEditor(sHeure, "HH"));
         for (int i = 0; i < Reservation.getNbrereservation(); i++) 
         {
             Reservation Re = Reservation.getUneReservation(i);
@@ -265,15 +265,8 @@ public class FSelectReservationA extends FMaster
         int Conf = JOptionPane.showConfirmDialog(null, "Voulez vous modifier la réservation : " + Reserv + " présent dans l'aplication ?", "Confirmer modification?", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (Conf == JOptionPane.YES_OPTION)
         {
-            try 
-                {
-                    Reservation Nre= new Reservation(cbxReserv.getSelectedItem().toString(), sdfDate.format(dpDate.getDate()), sdfHeure.parse(sHeure.getValue().toString()), cbxAssoc.getSelectedItem().toString());
-                    
-                } 
-            catch (ParseException ex) 
-                {
-                    Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            Reservation Nre= new Reservation(cbxReserv.getSelectedItem().toString(), sdfDate.format(dpDate.getDate()), Heure , cbxAssoc.getSelectedItem().toString());
+            Reservation.UpdateUneReservation(cbxReserv.getSelectedIndex(), Nre);
         }
     }//GEN-LAST:event_btnModifierActionPerformed
 
