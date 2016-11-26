@@ -62,8 +62,7 @@ public class FModifReservationB extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
         lblAssoc = new javax.swing.JLabel();
@@ -79,7 +78,7 @@ public class FModifReservationB extends FMaster
         lblH = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Modifier une Réservation");
+        setTitle("Modifier une Réservation en Base");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(0, 255, 51));
@@ -113,20 +112,16 @@ public class FModifReservationB extends FMaster
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });
 
         btnAnnuler.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAnnuler.setText("Annuler");
-        btnAnnuler.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAnnuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnnulerActionPerformed(evt);
             }
         });

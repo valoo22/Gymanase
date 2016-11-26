@@ -89,8 +89,11 @@ public class Reservation
     }
     public static void UpdateUneReservation(int i, Reservation Re)
     {
+        lesReservation.set(i, Re);
+    }
+    public static void SuprimerUnereservation(int i)
+    {
         lesReservation.remove(i);
-        lesReservation.add(Re);
     }
     public String affich() 
     {

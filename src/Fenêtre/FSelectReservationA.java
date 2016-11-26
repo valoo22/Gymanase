@@ -93,11 +93,12 @@ public class FSelectReservationA extends FMaster
         lblH = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selectionnez une réservation dans l'application");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(0, 255, 0));
         lblTitre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitre.setText("Selectionnez Une Reservation dans la Base");
+        lblTitre.setText("Selectionnez Une Reservation dans l'Application");
 
         btnModifier.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnModifier.setText("Modifier");
@@ -109,6 +110,11 @@ public class FSelectReservationA extends FMaster
 
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
+        btnSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSupprimerActionPerformed(evt);
+            }
+        });
 
         lblReservation.setFont(new java.awt.Font("Dialog", 1, 21)); // NOI18N
         lblReservation.setText("Réservation : ");
@@ -153,7 +159,7 @@ public class FSelectReservationA extends FMaster
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitre, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                    .addComponent(lblTitre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSupprimer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -265,10 +271,20 @@ public class FSelectReservationA extends FMaster
         int Conf = JOptionPane.showConfirmDialog(null, "Voulez vous modifier la réservation : " + Reserv + " présent dans l'aplication ?", "Confirmer modification?", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (Conf == JOptionPane.YES_OPTION)
         {
-            Reservation Nre= new Reservation(cbxReserv.getSelectedItem().toString(), sdfDate.format(dpDate.getDate()), Heure , cbxAssoc.getSelectedItem().toString());
+            Reservation Nre= new Reservation(cbxSalle.getSelectedItem().toString(), sdfDate.format(dpDate.getDate()), (Date)sHeure.getValue() , cbxAssoc.getSelectedItem().toString());
             Reservation.UpdateUneReservation(cbxReserv.getSelectedIndex(), Nre);
+            JOptionPane.showMessageDialog(null, "La Réservation a bien été modifié !", "Réservation Modifié", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnModifierActionPerformed
+
+    private void btnSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupprimerActionPerformed
+        int Conf = JOptionPane.showConfirmDialog(null, "Voulez vous supprimer la réservation : " + Reserv + " présent dans l'aplication ?", "Confirmer suppression?", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (Conf == JOptionPane.YES_OPTION)
+        {
+            Reservation.SuprimerUnereservation(cbxReserv.getSelectedIndex());
+            JOptionPane.showMessageDialog(null, "La Réservation a bien été supprimée !", "Réservation Suprimé", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSupprimerActionPerformed
 
     /**
      * @param args the command line arguments

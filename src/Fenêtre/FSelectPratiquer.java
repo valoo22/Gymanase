@@ -49,8 +49,7 @@ public class FSelectPratiquer extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         cbxAssoc = new javax.swing.JComboBox<>();
         lblTitre = new javax.swing.JLabel();
@@ -61,13 +60,11 @@ public class FSelectPratiquer extends FMaster
         lblSport = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajouter un Sport");
+        setTitle("Selectioner un lien entre une Association et un Sport");
 
         cbxAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxAssoc.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxAssoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxAssocActionPerformed(evt);
             }
         });
@@ -80,20 +77,16 @@ public class FSelectPratiquer extends FMaster
         btnAjouter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAjouter.setText("Ajouter");
         btnAjouter.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnAjouter.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAjouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAjouterActionPerformed(evt);
             }
         });
 
         btnSuprimmer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSuprimmer.setText("Supprimer");
-        btnSuprimmer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSuprimmer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuprimmerActionPerformed(evt);
             }
         });

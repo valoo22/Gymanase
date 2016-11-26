@@ -27,8 +27,7 @@ public class FStatSalle extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -37,6 +36,7 @@ public class FStatSalle extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Statistique de Salle");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(0, 204, 0));

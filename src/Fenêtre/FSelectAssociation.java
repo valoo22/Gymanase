@@ -49,8 +49,7 @@ public class FSelectAssociation extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         cbxAssoc = new javax.swing.JComboBox<>();
         lblTitre = new javax.swing.JLabel();
@@ -59,7 +58,7 @@ public class FSelectAssociation extends FMaster
         btnSupprimer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajouter un Sport");
+        setTitle("Selectioner une Association");
 
         cbxAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -71,20 +70,16 @@ public class FSelectAssociation extends FMaster
         btnAjouter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAjouter.setText("Ajouter");
         btnAjouter.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnAjouter.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAjouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAjouterActionPerformed(evt);
             }
         });
 
         btnModifier.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnModifier.setText("Modifier");
-        btnModifier.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifierActionPerformed(evt);
             }
         });
@@ -92,10 +87,8 @@ public class FSelectAssociation extends FMaster
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
         btnSupprimer.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnSupprimer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupprimerActionPerformed(evt);
             }
         });

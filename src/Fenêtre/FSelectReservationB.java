@@ -23,6 +23,8 @@ import javax.swing.JOptionPane;
  */
 public class FSelectReservationB extends FMaster
 {
+    java.util.Date D = new java.util.Date();
+    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
     ResultSet rs1;
     /**
      * Creates new form FSelectReservationB
@@ -35,7 +37,8 @@ public class FSelectReservationB extends FMaster
             Class.forName(pilote);
             conn = DriverManager.getConnection("jdbc:mysql://localhost/gymnase", "root", "");
             PreparedStatement ps = conn.prepareStatement(pilote);
-            rs1 = ps.executeQuery("Select DISTINCT refAsso from reservation");
+            String Date = sdfDate.format(D);
+            rs1 = ps.executeQuery("Select DISTINCT refAsso from reservation where date >= "+Date);
             while(rs1.next())
             {
                 cbxAssoc.addItem(rs1.getString("refAsso"));
@@ -56,8 +59,7 @@ public class FSelectReservationB extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
         lblAssoc = new javax.swing.JLabel();
@@ -72,6 +74,7 @@ public class FSelectReservationB extends FMaster
         btnSupprimer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selectionnez une reservation dans la Base");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(0, 255, 0));
@@ -82,10 +85,8 @@ public class FSelectReservationB extends FMaster
         lblAssoc.setText("Association : ");
 
         cbxAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxAssoc.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
+        cbxAssoc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxAssocItemStateChanged(evt);
             }
         });
@@ -94,10 +95,8 @@ public class FSelectReservationB extends FMaster
         lblSalle.setText("Salle : ");
 
         cbxSalle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxSalle.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
+        cbxSalle.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxSalleItemStateChanged(evt);
             }
         });
@@ -106,10 +105,8 @@ public class FSelectReservationB extends FMaster
         lblDate.setText("Date de la Réservation : ");
 
         cbxDate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxDate.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
+        cbxDate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxDateItemStateChanged(evt);
             }
         });
@@ -121,20 +118,16 @@ public class FSelectReservationB extends FMaster
 
         btnModifier.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnModifier.setText("Modifier");
-        btnModifier.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifierActionPerformed(evt);
             }
         });
 
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
-        btnSupprimer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupprimerActionPerformed(evt);
             }
         });

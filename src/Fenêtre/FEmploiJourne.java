@@ -101,8 +101,7 @@ public class FEmploiJourne extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tEmploi = new javax.swing.JTable();
@@ -113,11 +112,11 @@ public class FEmploiJourne extends FMaster
         lblSalle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Visualiser une Journée");
 
         tEmploi.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         tEmploi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
                 {"8H - 9H", null},
                 {"9H - 10H", null},
                 {"10H - 11H", null},
@@ -128,19 +127,15 @@ public class FEmploiJourne extends FMaster
                 {"16H - 17H", null},
                 {"17H - 18H", null}
             },
-            new String []
-            {
+            new String [] {
                 "Heure", "Disponibilité"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Object.class
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
@@ -158,10 +153,8 @@ public class FEmploiJourne extends FMaster
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });

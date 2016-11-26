@@ -207,8 +207,7 @@ public class FStatSport extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTtitre = new javax.swing.JLabel();
         lblTNbreSport = new javax.swing.JLabel();
@@ -226,6 +225,7 @@ public class FStatSport extends FMaster
         btnOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Statistique des Sport");
 
         lblTtitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblTtitre.setForeground(new java.awt.Color(0, 255, 51));
@@ -277,10 +277,8 @@ public class FStatSport extends FMaster
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });
@@ -363,7 +361,7 @@ public class FStatSport extends FMaster
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnOkActionPerformed
     {//GEN-HEADEREND:event_btnOkActionPerformed
-        FMenuPrincipal f1 = new FMenuPrincipal();
+        FStatistique f1 = new FStatistique();
         this.setVisible(false);
         f1.setVisible(true);
     }//GEN-LAST:event_btnOkActionPerformed

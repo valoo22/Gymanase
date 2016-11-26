@@ -44,7 +44,6 @@ public class FMaster extends javax.swing.JFrame
 
         mbMenu = new javax.swing.JMenuBar();
         mAcceuil = new javax.swing.JMenu();
-        miParametre = new javax.swing.JMenuItem();
         miEnrengistrer = new javax.swing.JMenuItem();
         sFile = new javax.swing.JPopupMenu.Separator();
         miExit = new javax.swing.JMenuItem();
@@ -66,14 +65,6 @@ public class FMaster extends javax.swing.JFrame
         setResizable(false);
 
         mAcceuil.setText("Acceuil");
-
-        miParametre.setText("Paramètre");
-        miParametre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miParametreActionPerformed(evt);
-            }
-        });
-        mAcceuil.add(miParametre);
 
         miEnrengistrer.setText("Enrengistrer");
         miEnrengistrer.addActionListener(new java.awt.event.ActionListener() {
@@ -189,13 +180,6 @@ public class FMaster extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void miParametreActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_miParametreActionPerformed
-    {//GEN-HEADEREND:event_miParametreActionPerformed
-        FOptions f1 = new FOptions();
-        this.setVisible(false);
-        f1.setVisible(true);
-    }//GEN-LAST:event_miParametreActionPerformed
 
     private void miPratiquerActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_miPratiquerActionPerformed
     {//GEN-HEADEREND:event_miPratiquerActionPerformed
@@ -389,7 +373,6 @@ public class FMaster extends javax.swing.JFrame
     private javax.swing.JMenuItem miExit;
     private javax.swing.JMenuItem miModifReservA;
     private javax.swing.JMenuItem miModifReservB;
-    private javax.swing.JMenuItem miParametre;
     private javax.swing.JMenuItem miPratiquer;
     private javax.swing.JMenuItem miSport;
     private javax.swing.JPopupMenu.Separator sFile;

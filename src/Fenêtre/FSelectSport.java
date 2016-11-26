@@ -47,8 +47,7 @@ public class FSelectSport extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         cbxSport = new javax.swing.JComboBox<>();
         lblAjoutSport = new javax.swing.JLabel();
@@ -56,7 +55,7 @@ public class FSelectSport extends FMaster
         btnSupprimer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajouter un Sport");
+        setTitle("Selectionnez un Sport");
         setPreferredSize(null);
 
         cbxSport.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -69,10 +68,8 @@ public class FSelectSport extends FMaster
         btnAjouter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAjouter.setText("Ajouter");
         btnAjouter.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnAjouter.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAjouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAjouterActionPerformed(evt);
             }
         });
@@ -80,10 +77,8 @@ public class FSelectSport extends FMaster
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
         btnSupprimer.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnSupprimer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupprimerActionPerformed(evt);
             }
         });

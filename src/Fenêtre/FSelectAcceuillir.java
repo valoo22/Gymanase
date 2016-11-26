@@ -47,8 +47,7 @@ public class FSelectAcceuillir extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         cbxSalle = new javax.swing.JComboBox<>();
         lblAjoutSport = new javax.swing.JLabel();
@@ -59,13 +58,11 @@ public class FSelectAcceuillir extends FMaster
         cbxSport = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajouter un Sport");
+        setTitle("Selectionner un lien entre une salle et un Sport");
 
         cbxSalle.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        cbxSalle.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxSalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxSalleActionPerformed(evt);
             }
         });
@@ -78,20 +75,16 @@ public class FSelectAcceuillir extends FMaster
         btnAjouter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAjouter.setText("Ajouter");
         btnAjouter.setPreferredSize(new java.awt.Dimension(72, 25));
-        btnAjouter.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAjouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAjouterActionPerformed(evt);
             }
         });
 
         btnSupprimer.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSupprimer.setText("Supprimer");
-        btnSupprimer.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSupprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSupprimerActionPerformed(evt);
             }
         });
@@ -115,7 +108,7 @@ public class FSelectAcceuillir extends FMaster
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(lblSalle)
                             .addComponent(lblSport)
-                            .addComponent(cbxSport, 0, 570, Short.MAX_VALUE)
+                            .addComponent(cbxSport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbxSalle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)

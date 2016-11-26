@@ -157,8 +157,7 @@ public class FStatUneAssoc extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
         lblUneAssoc = new javax.swing.JLabel();
@@ -173,6 +172,7 @@ public class FStatUneAssoc extends FMaster
         btnOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Statistique d'une Association");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(0, 204, 0));
@@ -210,10 +210,8 @@ public class FStatUneAssoc extends FMaster
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });

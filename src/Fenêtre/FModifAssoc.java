@@ -43,8 +43,7 @@ public class FModifAssoc extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         tfVille = new javax.swing.JTextField();
         lblAdresse = new javax.swing.JLabel();
@@ -59,6 +58,7 @@ public class FModifAssoc extends FMaster
         lblRefAssocT = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modifer une Association");
 
         tfVille.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tfVille.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -81,20 +81,16 @@ public class FModifAssoc extends FMaster
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("Ok");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });
 
         btnAnnuler.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAnnuler.setText("Annuler");
-        btnAnnuler.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAnnuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnnulerActionPerformed(evt);
             }
         });

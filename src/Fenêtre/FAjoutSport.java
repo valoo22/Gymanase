@@ -27,8 +27,7 @@ public class FAjoutSport extends FMaster {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitre = new javax.swing.JLabel();
         lblSport = new javax.swing.JLabel();
@@ -37,6 +36,7 @@ public class FAjoutSport extends FMaster {
         btnAnnuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ajouter un Sport");
 
         lblTitre.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblTitre.setForeground(new java.awt.Color(51, 255, 51));
@@ -51,20 +51,16 @@ public class FAjoutSport extends FMaster {
 
         btnOk.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
             }
         });
 
         btnAnnuler.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAnnuler.setText("Annuler");
-        btnAnnuler.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAnnuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnnulerActionPerformed(evt);
             }
         });

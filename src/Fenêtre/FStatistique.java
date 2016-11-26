@@ -27,8 +27,7 @@ public class FStatistique extends FMaster
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         btnSport = new javax.swing.JButton();
         lblTitre = new javax.swing.JLabel();
@@ -45,10 +44,8 @@ public class FStatistique extends FMaster
         btnSport.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnSport.setText("Sport");
         btnSport.setPreferredSize(null);
-        btnSport.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSportActionPerformed(evt);
             }
         });
@@ -59,10 +56,8 @@ public class FStatistique extends FMaster
 
         btnAssoc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnAssoc.setText("Association");
-        btnAssoc.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAssoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssocActionPerformed(evt);
             }
         });
@@ -71,20 +66,16 @@ public class FStatistique extends FMaster
         btnSalle.setText("Salle");
         btnSalle.setMaximumSize(new java.awt.Dimension(60, 25));
         btnSalle.setMinimumSize(new java.awt.Dimension(60, 25));
-        btnSalle.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalleActionPerformed(evt);
             }
         });
 
         btnReservation.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnReservation.setText("Réservation");
-        btnReservation.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnReservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservationActionPerformed(evt);
             }
         });

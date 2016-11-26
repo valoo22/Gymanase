@@ -9,14 +9,6 @@
             <Property name="text" type="java.lang.String" value="Acceuil"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="miParametre">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Param&#xe8;tre"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miParametreActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miEnrengistrer">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enrengistrer"/>
