@@ -41,30 +41,30 @@ public class FSelectReservationA extends FMaster
         sHeure.setModel(model);
         sHeure.setEditor(new JSpinner.DateEditor(sHeure, "HH"));
         for (int i = 0; i < Reservation.getNbrereservation(); i++) 
-        {
-            Reservation Re = Reservation.getUneReservation(i);
-            cbxReserv.addItem(Re.affich());
-        }
+            {
+                Reservation Re = Reservation.getUneReservation(i);
+                cbxReserv.addItem(Re.affich());
+            }
         try 
-        {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
-            ps = conn.prepareStatement(pilote);
-            rs1 = ps.executeQuery("Select refAsso from association");
-            while (rs1.next()) 
-            {                
-                cbxAssoc.addItem(rs1.getString("refAsso"));
-            }
-            ps1 = conn.prepareStatement(pilote);
-            rs2 = ps.executeQuery("Select refSalle from salle");
-            while (rs2.next()) 
-            {                
-                cbxSalle.addItem(rs2.getString("refSalle"));
-            }
-        } 
+            {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                ps = conn.prepareStatement(pilote);
+                rs1 = ps.executeQuery("Select refAsso from association");
+                while (rs1.next()) 
+                    {                
+                        cbxAssoc.addItem(rs1.getString("refAsso"));
+                    }
+                ps1 = conn.prepareStatement(pilote);
+                rs2 = ps.executeQuery("Select refSalle from salle");
+                while (rs2.next()) 
+                    {                
+                        cbxSalle.addItem(rs2.getString("refSalle"));
+                    }
+            } 
         catch (SQLException e) 
-        {
-            JOptionPane.showMessageDialog(null,"Erreur Sql: " + e.getMessage(),"Erreur SQL" , JOptionPane.ERROR_MESSAGE);
-        }
+            {
+                JOptionPane.showMessageDialog(null,"Erreur Sql: " + e.getMessage(),"Erreur SQL" , JOptionPane.ERROR_MESSAGE);
+            }
     }
         
 
@@ -233,14 +233,14 @@ public class FSelectReservationA extends FMaster
         SDate = ReservSplit[2];
         SHeure = ReservSplit[3];
         try 
-        {
-            Date = sdfDate.parse(SDate);
-            Heure = sdfHeure.parse(SHeure);
-        } 
+            {
+                Date = sdfDate.parse(SDate);
+                Heure = sdfHeure.parse(SHeure);
+            } 
         catch (ParseException ex) 
-        {
-            Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            {
+                Logger.getLogger(FSelectReservationA.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         for (int i = 0; i < cbxAssoc.getItemCount(); i++) 
             {
@@ -257,14 +257,11 @@ public class FSelectReservationA extends FMaster
                     }
             }
         dpDate.setDate(Date);
-        for (int i = 0; i < sHeure.getComponentCount(); i++) 
-            {
-                if (sHeure.getComponent(i).equals(SHeure)) 
-                    {
-                        SpinnerDateModel model = new SpinnerDateModel(Heure,avant,apres,Calendar.HOUR);
-                        sHeure.setModel(model);
-                    }
-            }
+        SpinnerDateModel model;
+        model = new SpinnerDateModel(Heure,avant,apres,Calendar.HOUR);
+        model.setCalendarField(Calendar.MINUTE);
+        sHeure.setModel(model);
+        sHeure.setEditor(new JSpinner.DateEditor(sHeure, "HH"));
     }//GEN-LAST:event_cbxReservActionPerformed
 
     private void btnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifierActionPerformed

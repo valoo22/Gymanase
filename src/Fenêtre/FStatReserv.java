@@ -200,41 +200,58 @@ public class FStatReserv extends FMaster
 
     private void btnListerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListerActionPerformed
         int k = 0;
-        if (cbxAssoc.getSelectedItem() == null || cbxAssoc.getSelectedIndex()== 0 ) 
+            for (int i = 0; i < TReserv.getRowCount(); i++) 
+                {
+                    for (int j = 0; j < TReserv.getColumnCount(); j++) 
+                        {
+                            TReserv.setValueAt(null, i, j);
+                        }
+                }
+        try 
             {
-                if (cbxSalle.getSelectedIndex() == 0 || cbxSalle.getSelectedItem() == null) 
+                k = 0;
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
+                ps = conn.prepareStatement(pilote);
+                String req = "SELECT refSalle, refAsso, date, heure from reservation";
+                if (cbxAssoc.getSelectedIndex() != 0 && cbxSalle.getSelectedIndex() != 0 ) 
+                    {
+                        req += " WHERE refAsso ='" + cbxAssoc.getSelectedItem().toString() +"' and refSalle ='"+cbxSalle.getSelectedItem().toString()+"'";
+                    }
+                if (cbxAssoc.getSelectedIndex() == 0 && cbxSalle.getSelectedIndex() != 0)
+                    {
+                        req += " WHERE refSalle ='"+cbxSalle.getSelectedItem().toString()+"'";
+                    }
+                if (cbxAssoc.getSelectedIndex() != 0 && cbxSalle.getSelectedIndex() == 0)
+                    {
+                        req += " WHERE refAsso ='"+cbxAssoc.getSelectedItem().toString()+"'";
+                    }
+                rs = ps.executeQuery(req);
+                while (rs.next())                  
+                    {
+                        TReserv.setValueAt(rs.getString(1), k, 0);
+                        TReserv.setValueAt(rs.getString(2), k, 1);
+                        TReserv.setValueAt(rs.getString(3), k, 2);
+                        TReserv.setValueAt(rs.getString(4)+ " H", k, 3);
+                        k++;
+                    }
+                rs.close();
+                ps.close();
+                lblReserv.setText(Integer.toString(k));
+            } 
+        catch ( SQLException e ) 
+            {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
+            } 
+        finally 
+            {
+                if ( conn != null )
                     {
                         try 
                             {
-                                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
-                                ps = conn.prepareStatement(pilote);
-                                rs = ps.executeQuery("Select refSalle, refAsso, date, heure from reservation");
-                                while (rs.next())                  
-                                    {
-                                        TReserv.setValueAt(rs.getString(1), k, 0);
-                                        TReserv.setValueAt(rs.getString(2), k, 1);
-                                        TReserv.setValueAt(rs.getString(3), k, 2);
-                                        TReserv.setValueAt(sdfTime.format(rs.getDate(4))+" H", k, 3);
-                                        k++;
-                                    }
-                                rs.close();
-                                ps.close();
+                                conn.close();
                             } 
-                        catch ( SQLException e ) 
+                        catch ( SQLException ignore ) 
                             {
-                                JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur Sql", JOptionPane.INFORMATION_MESSAGE);
-                            } 
-                        finally 
-                            {
-                                if ( conn != null )
-                                    try 
-                                        {
-                                            conn.close();
-                                        } 
-                                    catch ( SQLException ignore ) 
-                                        {
-
-                                        }
                             }
                     }
             }
