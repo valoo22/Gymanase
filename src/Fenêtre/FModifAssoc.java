@@ -161,7 +161,7 @@ public class FModifAssoc extends FMaster
         try
         {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gymnase", "root", "" );
-            PreparedStatement prepareStmt = conn.prepareStatement("insert into association(refAsso, ville, adresse, nomResponsable) values(?,?,?,?)");
+            PreparedStatement prepareStmt = conn.prepareStatement("update association SET ville = ?, adresse = ?, nomResponsable = ? WHERE refAsso = ?");
             prepareStmt.setString(1, lblRefAssocT.getText());
             prepareStmt.setString(2, tfVille.getText());
             prepareStmt.setString(3, tfAdresse.getText());

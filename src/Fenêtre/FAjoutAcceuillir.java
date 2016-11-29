@@ -51,7 +51,7 @@ public class FAjoutAcceuillir extends FMaster
             Class.forName(pilote);
             conn = DriverManager.getConnection("jdbc:mysql://localhost/gymnase", "root", "");
             stat = conn.createStatement();
-            rs1 = stat.executeQuery("Select sport.nomSport from sport");
+            rs1 = stat.executeQuery("Select nomSport from sport where nomSport NOT IN (Select nomSportAutorise from accueillir where refSalle ='"+cbxSalle.getSelectedItem().toString()+"')");
             while(rs1.next())
             {
                 cbxSport.addItem(rs1.getString("nomSport"));
